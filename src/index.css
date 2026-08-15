@@ -1,0 +1,194 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans:
+    'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+
+  --color-ink-50: #f6f7f9;
+  --color-ink-100: #eceef2;
+  --color-ink-200: #d7dbe3;
+  --color-ink-300: #b3bac7;
+  --color-ink-400: #8892a5;
+  --color-ink-500: #667186;
+  --color-ink-600: #4d5670;
+  --color-ink-700: #3a4152;
+  --color-ink-800: #232936;
+  --color-ink-900: #0b1220;
+
+  --color-brand-50: #eefbf5;
+  --color-brand-100: #d5f5e6;
+  --color-brand-200: #ade9d0;
+  --color-brand-300: #76d8b4;
+  --color-brand-400: #3ec296;
+  --color-brand-500: #17a97b;
+  --color-brand-600: #0c8a65;
+  --color-brand-700: #0b6e52;
+  --color-brand-800: #0c5743;
+  --color-brand-900: #0a4838;
+
+  --color-iris-400: #8b8cf9;
+  --color-iris-500: #6d6ef0;
+  --color-iris-600: #5754d8;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-ink-50 text-ink-900 font-sans antialiased;
+    margin: 0;
+    min-height: 100dvh;
+  }
+
+  /* Financial figures should never jitter as they animate or update. */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1;
+  }
+
+  :focus-visible {
+    @apply outline-brand-500 outline-2 outline-offset-2;
+  }
+}
+
+@utility btn {
+  @apply inline-flex w-full items-center justify-center gap-2 rounded-xl px-4 py-3 text-[15px] font-semibold transition
+         disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+@layer components {
+  .card {
+    @apply border-ink-200/70 rounded-2xl border bg-white shadow-[0_1px_2px_rgba(11,18,32,0.04),0_12px_32px_-16px_rgba(11,18,32,0.18)];
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-600 hover:bg-brand-700 text-white shadow-[0_8px_20px_-8px_var(--color-brand-600)]
+           active:translate-y-px disabled:hover:bg-brand-600 disabled:shadow-none;
+  }
+
+  .btn-secondary {
+    @apply btn border-ink-200 text-ink-800 hover:bg-ink-50 border bg-white active:translate-y-px;
+  }
+
+  .btn-ghost {
+    @apply btn text-ink-600 hover:text-ink-900 hover:bg-ink-100/70 bg-transparent;
+  }
+
+  .field {
+    @apply border-ink-200 text-ink-900 placeholder:text-ink-400 focus:border-brand-500
+           focus:ring-brand-500/25 w-full rounded-xl border bg-white px-4 py-3 text-[15px]
+           transition focus:ring-4 focus:outline-none;
+  }
+
+  .label {
+    @apply text-ink-700 mb-1.5 block text-sm font-medium;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold;
+  }
+
+  .option {
+    @apply border-ink-200 relative flex w-full items-start gap-3.5 rounded-2xl border bg-white p-4 text-left
+           transition hover:border-brand-300 hover:bg-brand-50/40 active:translate-y-px;
+  }
+
+  .option-selected {
+    @apply border-brand-500 bg-brand-50/70 ring-brand-500/20 ring-4;
+  }
+}
+
+@keyframes screen-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes grow-bar {
+  from {
+    transform: scaleY(0.02);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  70% {
+    transform: scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.animate-screen-in {
+  animation: screen-in 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-rise {
+  animation: rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-pop-in {
+  animation: pop-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-grow-bar {
+  transform-origin: bottom;
+  animation: grow-bar 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-ink-100) 25%,
+    var(--color-ink-200) 37%,
+    var(--color-ink-100) 63%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
