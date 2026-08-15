@@ -137,7 +137,7 @@ export function DataSourceScreen({
         ) : (
           <>
             <Icon name="upload" className="h-[18px] w-[18px]" />
-            Import {persona.file.fileName.split('.')[0].slice(0, 28)}
+            {persona.file.ctaLabel}
           </>
         )}
       </button>

@@ -138,6 +138,9 @@ export interface Persona {
     optionSub: string
     fileName: string
     fileMeta: string
+    ctaLabel: string
+    /** How the import is referred to once they are inside the product. */
+    sourceLabel: string
   }
   importSteps: string[]
   importSummary: string

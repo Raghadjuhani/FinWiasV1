@@ -177,7 +177,7 @@ export function BreakdownList({ rows }: { rows: BreakdownRow[] }) {
             </span>
             <span className="text-ink-900 tnum shrink-0 text-[13.5px] font-semibold">
               {currency(row.amount)}
-              <span className="text-ink-400 ml-2 font-medium">{count(row.count)}</span>
+              <span className="text-ink-400 ml-2 font-medium">{count(row.count)} items</span>
             </span>
           </div>
           <div className="bg-ink-100 h-2 w-full overflow-hidden rounded-full">

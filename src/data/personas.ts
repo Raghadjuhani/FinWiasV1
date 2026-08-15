@@ -30,6 +30,8 @@ const freelancer: Persona = {
     optionSub: 'CSV, OFX or PDF export from your bank.',
     fileName: 'chase-statements-2025.csv',
     fileMeta: 'CSV · 486 rows · 18 months',
+    ctaLabel: 'Import your statement',
+    sourceLabel: 'your Chase statement',
   },
   importSteps: [
     'Establishing a read-only link with Chase',
@@ -78,7 +80,7 @@ const freelancer: Persona = {
         { name: 'Lumen Studio', meta: 'INV-0042 · 12 days late', amount: 3200, status: 'overdue' },
         { name: 'Bright Harbor Co.', meta: 'INV-0045 · due Sep 1', amount: 3600, status: 'expected' },
         { name: 'Studio rent', meta: 'Recurring · Sep 1', amount: -1850, status: 'scheduled' },
-        { name: 'Adobe Creative Cloud', meta: 'Recurring · Aug 24', amount: -89.99, status: 'scheduled' },
+        { name: 'Adobe Creative Cloud', meta: 'Recurring · Aug 24', amount: -89, status: 'scheduled' },
       ],
       insight: {
         title: 'You dip under $10k in week 6',
@@ -181,6 +183,8 @@ const owner: Persona = {
     optionSub: 'CSV, OFX, QuickBooks or Xero export.',
     fileName: 'riverbend-transactions-q2-q3.csv',
     fileMeta: 'CSV · 2,417 rows · 3 accounts',
+    ctaLabel: 'Import your export',
+    sourceLabel: 'your bank export',
   },
   importSteps: [
     'Establishing a read-only link with Bank of America',
@@ -335,6 +339,8 @@ const accountant: Persona = {
     optionSub: 'QuickBooks, Xero, Sage or CSV. Bulk upload all 12 at once.',
     fileName: 'hartwell-client-ledgers-12.zip',
     fileMeta: 'QuickBooks export · 12 books · 9,842 rows',
+    ctaLabel: 'Import 12 client ledgers',
+    sourceLabel: 'your QuickBooks export',
   },
   importSteps: [
     'Reading 12 client ledgers',

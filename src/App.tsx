@@ -25,7 +25,7 @@ export default function App() {
 
   const persona = PERSONAS[userType ?? DEFAULT_USER_TYPE]
   const bank = BANKS.find((b) => b.id === bankId) ?? BANKS[0]
-  const sourceLabel = source === 'bank' ? bank.name : persona.file.fileName
+  const sourceLabel = source === 'bank' ? bank.name : persona.file.sourceLabel
 
   useEffect(() => {
     window.scrollTo({ top: 0 })
